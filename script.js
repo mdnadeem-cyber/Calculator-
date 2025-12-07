@@ -87,3 +87,36 @@ return;
 
 // initialize
 updateDisplay();
+// Append number to expression
+function appendNumber(number) {
+    expression += number;
+    updateDisplay();
+}
+
+// Choose operation like + - * /
+function chooseOperation(op) {
+    expression += op;
+    updateDisplay();
+}
+
+// Clear all
+function clearDisplay() {
+    expression = "";
+    updateDisplay();
+}
+
+// Delete last character
+function deleteLast() {
+    expression = expression.slice(0, -1);
+    updateDisplay();
+}
+
+// Calculate result
+function calculate() {
+    try {
+        expression = String(safeEval(expression));
+    } catch {
+        expression = "Error";
+    }
+    updateDisplay();
+}
