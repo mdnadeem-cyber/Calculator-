@@ -9,7 +9,9 @@ displayEl.textContent = expression === '' ? '0' : expression;
 
 function safeEval(expr){
 // Allow only digits, parentheses, spaces, decimal point and math operators
-const safePattern = /^[0-9+\-*/().\s]+$/;
+const safePattern = /^[0-9+\-*/()%^√.\s]+$/;
+
+
 if(!safePattern.test(expr)) throw new Error('Invalid characters');
 // Prevent multiple consecutive operators like '**' or '//' which are JS valid but we prefer simple arithmetic
 const badSeq = /[+\-*/]{2,}/;
